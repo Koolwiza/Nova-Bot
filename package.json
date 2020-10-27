@@ -1,0 +1,38 @@
+{
+  "name": "galaxy-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amethyste-api": "^1.1.4",
+    "canvacord": "^4.0.2",
+    "chalk": "^4.1.0",
+    "common-tags": "^1.8.0",
+    "cpu-stat": "^2.0.1",
+    "discord-giveaways": "^4.2.1",
+    "discord.js": "^12.3.1",
+    "figlet": "^1.5.0",
+    "fs": "0.0.1-security",
+    "imdb-api": "^4.2.0",
+    "kitsu": "^9.1.15",
+    "kitsu.js": "^2.0.0",
+    "long": "^4.0.0",
+    "mal-scraper": "^2.11.0",
+    "moment": "^2.29.0",
+    "moment-duration-format": "^2.3.2",
+    "ms": "^2.1.2",
+    "noblox.js": "^4.7.3",
+    "node-fetch": "^2.6.1",
+    "node.js": "0.0.1-security",
+    "os": "^0.1.1",
+    "quick.db": "^7.1.2",
+    "random-joke": "^1.0.5",
+    "twemoji-parser": "^13.0.0",
+    "urban": "^0.3.2"
+  }
+}
