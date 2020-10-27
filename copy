@@ -11,6 +11,6 @@ module.exports = {
     category: '',
     guildOnly: true,
     async execute(message, args){
-        
+        // This file is just for you to copy and create new commands each time. So it becomes more efficient. If theres an easier way, let me know
     }
 }
