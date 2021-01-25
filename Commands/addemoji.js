@@ -1,8 +1,6 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
 const { parse } = require("twemoji-parser");
 const { MessageEmbed } = require("discord.js");
-const Color = `RANDOM`;
 
 module.exports = {
     name: 'addemoji',
@@ -17,38 +15,38 @@ module.exports = {
         }
 
         const emoji = args[0];
-        if (!emoji) return message.channel.send(`Please Give Me A Emoji!`);
+    if (!emoji) return message.channel.send(`Please give me a emoji!`);
 
-        let customemoji = Discord.Util.parseEmoji(emoji);
+    let customemoji = Discord.Util.parseEmoji(emoji);
 
-        if (customemoji.id) {
-            const Link = `https://cdn.discordapp.com/emojis/${customemoji.id}.${
-              customemoji.animated ? "gif" : "png"
-            }`;
-            const name = args.slice(1).join(" ");
-            message.guild.emojis.create(
-                `${Link}`,
-                `${name || `${customemoji.name}`}`
-            ).catch(error => {
-                console.log(error)
-            })
-            const Added = new MessageEmbed()
-                .setTitle(`Emoji Added`)
-                .setColor(`${Color}`)
-                .setDescription(
-                    `**Emoji Has Been Added!** | **Name:** \`${name || `${customemoji.name}`}\` | **Preview:** [Click Me](${Link})`
-                );
-            return message.channel.send(Added).catch(e => {
-                console.log(e)
-            })
-        } else {
-            let CheckEmoji = parse(emoji, {
-                assetType: "png"
-            });
-            if (!CheckEmoji[0])
-                return message.channel.send(`Please Give Me A Valid Emoji!`);
-            message.channel.send(
-                `You Can Use Normal Emoji Without Adding In Server!`
+    if (customemoji.id) {
+        const Link = `https://cdn.discordapp.com/emojis/${customemoji.id}.${
+            customemoji.animated ? "gif" : "png"
+        }`;
+        const name = args.slice(1).join(" ");
+        message.guild.emojis.create(
+            `${Link}`,
+            `${name || `${customemoji.name}`}`
+        ).catch(error => {
+            console.log(error)
+        })
+        const Added = new MessageEmbed()
+            .setTitle(`Emoji added`)
+            .setColor(Math.floor(Math.random() * 16777215))
+            .setDescription(
+                `**Emoji has been added!** | **Name:** \`${name || `${customemoji.name}`}\` | **Preview:** [Click me](${Link})`
+            );
+        return message.channel.send(Added).catch(e => {
+            console.log(e)
+        })
+    } else {
+        let CheckEmoji = parse(emoji, {
+            assetType: "png"
+        });
+        if (!CheckEmoji[0])
+            return message.channel.send(`Please give me a valid emoji!`);
+        message.channel.send(
+            `You can use normal emoji without adding in server!`
             );
         }
     }
