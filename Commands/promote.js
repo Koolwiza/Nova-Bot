@@ -1,7 +1,3 @@
-const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
-
 module.exports = {
     name: 'promote',
     description: 'Promotes the user to the next rank',
@@ -24,7 +20,7 @@ module.exports = {
         const communityManage = message.guild.roles.cache.find(role => role.id === "747575271237877860")
         const coOwn = message.guild.roles.cache.find(role => role.id === "747607353498664980")
         let member = message.mentions.members.first()
-        if(!member) return message.reply("Please mention a user to promote!")
+        if (!member) return message.reply("Please mention a user to promote!")
 
         if (member.roles.cache.some(r => r.id === "753395776423591987")) {
             member.roles.add(Helper).catch(e => {

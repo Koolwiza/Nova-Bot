@@ -15,7 +15,6 @@ const {
 } = require('./config.json')
 const client = new Discord.Client()
 
-const colors = require('./colors.json')
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 
 client.commands = new Discord.Collection()
@@ -24,7 +23,7 @@ client.commands = new Discord.Collection()
 // Bot Code //
 
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
+    const command = require(`./Commands/${file}`);
     client.commands.set(command.name, command);
 }
 
@@ -56,12 +55,12 @@ client.on('message', async message => {
         .setTimestamp()
         .setAuthor(`${message.client.user.username}`, message.client.user.avatarURL())
         .setDescription("👋 Hello, my prefix is `^`. Use `^help` for all of my commands!")
-        .setColor(colors.orange)
+        .setColor(Math.floor(Math.random() * 16777215))
         .setFooter(message.client.user.username, message.client.user.displayAvatarURL({
             dynamic: true
         }))
 
-        
+
     if (message.mentions.users.has(message.client.user.id)) message.channel.send(`<@${message.author.id}>`, mentionEmbed)
 
     if (!message.content.startsWith(prefix)) return;
@@ -78,7 +77,7 @@ client.on('message', async message => {
 
     let blacklistedEmbed = new Discord.MessageEmbed()
         .setTitle("YOU HAVE BEEN BLACKLISTED")
-        .setColor(colors.red)
+        .setColor(Math.floor(Math.random() * 16777215))
         .setDescription("You have been blacklisted from my commands. If you wish to appeal, please DM <@559191331298213898> for more info.")
         .setFooter(`${client.user.username}`, client.user.avatarURL())
 

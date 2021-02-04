@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
 
 module.exports = {
     name: 'feedback',
@@ -21,7 +20,7 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
             .setTitle(`New review`)
             .addField(`Stars:`, `${stararray.join("")}`)
-            .setColor("RANDOM")
+            .setColor(Math.floor(Math.random() * 16777215))
             .addField(`Comment:`, `${feedstr}`)
             .addField(`From:`, `${message.author}`)
             .setThumbnail(message.author.displayAvatarURL({

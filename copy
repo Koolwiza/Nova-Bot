@@ -14,3 +14,6 @@ module.exports = {
         // This file is just for you to copy and create new commands each time. So it becomes more efficient. If theres an easier way, let me know
     }
 }
+
+//todo
+//do not use copy paste const items they do not work out for you and give you a bunch of useless code.

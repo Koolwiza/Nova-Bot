@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
 const ms = require('ms')
 
 module.exports = {
@@ -13,19 +12,19 @@ module.exports = {
         if (!message.member.hasPermission("MANAGE_CHANNELS"))
             return message.channel.send(
                 new Discord.MessageEmbed()
-                .setDescription("You don't have enough permissions to use this command.")
-                .setColor(colors.red)
-                .setAuthor(message.author.tag, message.author.displayAvatarURL({
-                    dynamic: true
-                }))
+                    .setDescription("You don't have enough permissions to use this command.")
+                    .setColor(Math.floor(Math.random() * 16777215))
+                    .setAuthor(message.author.tag, message.author.displayAvatarURL({
+                        dynamic: true
+                    }))
             )
         if (!message.mentions.channels.first()) return message.channel.send(
             new Discord.MessageEmbed()
-            .setColor(colors.red)
-            .setAuthor(message.author.tag, message.author.displayAvatarURL({
-                dynamic: true
-            }))
-            .setDescription("You didn't specify a channel to lock.")
+                .setColor(Math.floor(Math.random() * 16777215))
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({
+                    dynamic: true
+                }))
+                .setDescription("You didn't specify a channel to lock.")
         )
 
         if (!message.guild.me.hasPermission) {
@@ -51,7 +50,7 @@ module.exports = {
             await Channel.updateOverwrite(message.guild.id, {
                 SEND_MESSAGES: false
             });
-            
+
             message.channel.send({
                 embed: {
                     title: 'Success!',

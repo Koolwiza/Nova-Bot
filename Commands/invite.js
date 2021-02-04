@@ -1,7 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
-const db = require('quick.db')
 
 module.exports = {
     name: 'invite',
@@ -11,7 +8,7 @@ module.exports = {
     guildOnly: true,
     async execute(message, args) {
         let tosEmbed = new Discord.MessageEmbed()
-            .setColor(colors.orange)
+            .setColor(Math.floor(Math.random() * 16777215))
             .setTimestamp()
             .setFooter(message.client.user.username, message.client.user.displayAvatarURL())
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -36,7 +33,7 @@ module.exports = {
             }).then(async collected => {
                 const reaction = collected.first();
                 if (reaction.emoji.name === "✅") {
-                    
+
                     let userReactions = (sMessage.reactions.cache.filter(reaction => reaction.users.cache.has(message.author.id)))
                     for (const reaction of userReactions.values()) {
                         await reaction.users.remove(message.author.id);
@@ -45,7 +42,7 @@ module.exports = {
 
                     let editEmbed = new Discord.MessageEmbed()
                         .setTitle(`${message.client.user.username} Bot Invite`)
-                        .setColor(colors.orange)
+                        .setColor(Math.floor(Math.random() * 16777215))
                         .setTimestamp()
                         .setFooter(message.client.user.username, message.client.user.displayAvatarURL())
                         .setThumbnail(message.client.user.avatarURL())

@@ -1,8 +1,6 @@
-const Discord = require('discord.js')
-const colors = require('../colors.json')
-const { stripIndents } = require("common-tags");
+const {stripIndents} = require("common-tags");
 const urban = require('urban');
-const { MessageEmbed } = require('discord.js')
+const {MessageEmbed} = require('discord.js')
 
 module.exports = {
     name: 'urban',
@@ -34,10 +32,10 @@ module.exports = {
                 } = result;
 
                 let embed = new MessageEmbed()
-                    .setColor("RANDOM")
+                    .setColor(Math.floor(Math.random() * 16777215))
                     .setAuthor(`Urban Dictionary | ${word}`, img)
                     .setThumbnail(img)
-                    .setDescription(stripIndents `**Definition** ${definition || 'No definition'}
+                    .setDescription(stripIndents`**Definition** ${definition || 'No definition'}
                     **Example:** ${example || 'No example'}
                     **Upvote:** ${thumbs_up || 0}
                     **Downvote:** ${thumbs_down || 0}

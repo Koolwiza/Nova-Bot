@@ -4,10 +4,8 @@ const {
     version
 } = require("discord.js");
 const moment = require("moment");
-const m = require("moment-duration-format");
 let os = require('os')
 let cpuStat = require("cpu-stat")
-const ms = require("ms")
 
 
 module.exports = {
@@ -16,8 +14,7 @@ module.exports = {
     usage: 'botinfo',
     category: 'Utility',
     guildOnly: true,
-    async execute(message, args) {
-        let cpuLol;
+    async execute(message) {
         cpuStat.usagePercent(async function (err, percent, seconds) {
             if (err) {
                 return console.log(err);
@@ -26,7 +23,7 @@ module.exports = {
             const botinfo = new Discord.MessageEmbed()
                 .setAuthor(message.client.user.username)
                 .setTitle("__**Stats:**__")
-                .setColor("RANDOM")
+                .setColor(Math.floor(Math.random() * 16777215))
                 .addField("`⏳` Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
                 .addField("`⌚️` Uptime ", `${duration}`, true)
                 .addField("`📁` Users", `${message.client.users.cache.size}`, true)
@@ -39,7 +36,7 @@ module.exports = {
                 .addField("`🤖` Arch", `\`${os.arch()}\``, true)
                 .addField("`💻` Platform", `\`\`${os.platform()}\`\``, true)
                 .addField("API Latency", `${(message.client.ws.ping)}ms`)
-         message.channel.send(botinfo)
+            await message.channel.send(botinfo)
         });
     }
 }

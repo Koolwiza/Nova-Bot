@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 const config = require('../config.json')
 
@@ -14,13 +12,13 @@ module.exports = {
     async execute(message, args) {
         if (message.author.id === config.owner) {
             let User = await message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase().includes() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase().includes() === args.join(' ').toLocaleLowerCase())
-            
+
             let bReason = args.join(" ").slice(32)
             let noUser = new Discord.MessageEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.red)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setDescription('Please provide a valid user')
                 .addField("Usage:", '`whitelist <user> [reason]`')
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
@@ -31,16 +29,16 @@ module.exports = {
 
             if (!bReason) bReason = 'No reason defined'
 
-            if(checkingBlacklisted === true){
+            if (checkingBlacklisted === true) {
                 let alreadyBlacklisted = new Discord.MessageEmbed()
-                .setDescription('This user isn\'t blacklisted!')
-                .setAuthor(message.author.username, message.author.avatarURL({
-                    dynamic: true
-                }))
-                .setColor(colors.red)
-                .setFooter(message.client.user.username, message.client.user.avatarURL())
+                    .setDescription('This user isn\'t blacklisted!')
+                    .setAuthor(message.author.username, message.author.avatarURL({
+                        dynamic: true
+                    }))
+                    .setColor(Math.floor(Math.random() * 16777215))
+                    .setFooter(message.client.user.username, message.client.user.avatarURL())
 
-            return message.channel.send(alreadyBlacklisted)
+                return message.channel.send(alreadyBlacklisted)
             }
 
             db.set(`blacklistMember_${User.id}`, false)
@@ -49,21 +47,21 @@ module.exports = {
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.green)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .addField('Reason:', bReason)
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
-            message.channel.send(blacklistedEmbed)
-            
-            
+            await message.channel.send(blacklistedEmbed)
+
+
         } else {
             let cannotUse = new Discord.MessageEmbed()
                 .setDescription('You cannot use this command. Only **OWNERS** can use this.')
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.red)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
-            message.channel.send(cannotUse)
+            await message.channel.send(cannotUse)
         }
     }
 }

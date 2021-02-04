@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 const ms = require('ms')
 
@@ -30,7 +28,7 @@ module.exports = {
                 }))
                 .setDescription("You did good at work. Here's <a:coin1:762153326430912532>" + payment + '!')
                 .setTimestamp()
-                .setColor("GREEN")
+                .setColor(Math.floor(Math.random() * 16777215))
             message.channel.send(workEmbed)
 
         }

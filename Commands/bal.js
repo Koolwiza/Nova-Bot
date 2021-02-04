@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 
 module.exports = {
@@ -9,7 +7,7 @@ module.exports = {
     usage: 'bal [user]',
     category: 'Economy',
     guildOnly: true,
-    async execute(message, args){
+    async execute(message, args) {
         let User = message.mentions.users.first() || message.author;
 
         let bal = await db.fetch(`money_${message.guild.id}_${User.id}`);
@@ -23,7 +21,7 @@ module.exports = {
             .setAuthor(User.tag, User.avatarURL({
                 dynamic: true
             }))
-            .setColor("BLUE")
+            .setColor(Math.floor(Math.random() * 16777215))
             .addField("Coins:", `<a:coin1:762153326430912532> ${bal}`, true)
             .addField("Bank: ", `<a:coin1:762153326430912532> ${bank}`, true)
             .addField("Net worth:", `<a:coin1:762153326430912532> ${bank + bal}`)

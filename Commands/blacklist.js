@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 const config = require('../config.json')
 
@@ -19,7 +17,7 @@ module.exports = {
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.red)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setDescription('Please provide a valid user')
                 .addField("Usage:", '`blacklist <user> [reason]`')
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
@@ -35,30 +33,30 @@ module.exports = {
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.green)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .addField('Reason:', bReason)
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
 
             message.channel.send(blacklistedEmbed)
-            if(checkingBlacklisted == true){
+            if (checkingBlacklisted == true) {
                 let alreadyBlacklisted = new Discord.MessageEmbed()
-                .setDescription('This user is already blacklisted!')
-                .setAuthor(message.author.username, message.author.avatarURL({
-                    dynamic: true
-                }))
-                .setColor(colors.red)
-                .setFooter(message.client.user.username, message.client.user.avatarURL())
+                    .setDescription('This user is already blacklisted!')
+                    .setAuthor(message.author.username, message.author.avatarURL({
+                        dynamic: true
+                    }))
+                    .setColor(Math.floor(Math.random() * 16777215))
+                    .setFooter(message.client.user.username, message.client.user.avatarURL())
 
-            return message.channel.send(alreadyBlacklisted)
+                return message.channel.send(alreadyBlacklisted)
             }
-            
+
         } else {
             let cannotUse = new Discord.MessageEmbed()
                 .setDescription('You cannot use this command. Only **OWNERS** can use this.')
                 .setAuthor(message.author.username, message.author.avatarURL({
                     dynamic: true
                 }))
-                .setColor(colors.red)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setFooter(message.client.user.username, message.client.user.avatarURL())
             message.channel.send(cannotUse)
         }

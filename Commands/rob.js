@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 const ms = require('ms')
 
@@ -17,7 +15,7 @@ module.exports = {
             .setAuthor(message.author.username, message.author.avatarURL({
                 dynamic: true
             }))
-            .setColor("RED")
+            .setColor(Math.floor(Math.random() * 16777215))
             .addField('Usage:', '`rob <user>`')
         if (!User) return message.channel.send(noUserEmbed)
 
@@ -31,17 +29,17 @@ module.exports = {
             let time = ms(timeout - (Date.now() - author));
 
             let timeEmbed = new Discord.MessageEmbed()
-                .setColor("RED")
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setAuthor(message.author.tag, message.author.avatarURL({
                     dynamic: true
                 }))
                 .setTimestamp()
                 .setDescription(`<:xmark:761665920459341894> You have already robbed someone\nTry again in 10 minutes `);
-            message.channel.send(timeEmbed)
+            await message.channel.send(timeEmbed)
         } else {
 
             let moneyEmbed = new Discord.MessageEmbed()
-                .setColor("RED")
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setAuthor(message.author.tag, message.author.avatarURL({
                     dynamic: true
                 }))
@@ -54,13 +52,13 @@ module.exports = {
 
             if (usersCash < 0) {
                 let moneyEmbed2 = new Discord.MessageEmbed()
-                    .setColor("RED")
+                    .setColor(Math.floor(Math.random() * 16777215))
                     .setAuthor(message.author.tag, message.author.avatarURL({
                         dynamic: true
                     }))
                     .setTimestamp()
                     .setDescription(`<:xmark:761665920459341894> ${User.user.username} does not have anything you can rob`);
-                message.channel.send(moneyEmbed2)
+                await message.channel.send(moneyEmbed2)
             }
             let percentAmount = Math.floor(Math.random() * 43)
             let robAmount = Math.floor(usersCash * (percentAmount) / 100)
@@ -70,12 +68,12 @@ module.exports = {
 
             let embed = new Discord.MessageEmbed()
                 .setDescription(`<:check:761665701408538634> You robbed <a:coin1:762153326430912532> ${robAmount} from ${User.user.tag}`)
-                .setColor("GREEN")
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setAuthor(message.author.tag, message.author.avatarURL({
                     dynamic: true
                 }))
                 .setTimestamp()
-            message.channel.send(embed)
+            await message.channel.send(embed)
 
 
         }

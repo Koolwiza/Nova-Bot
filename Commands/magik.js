@@ -1,10 +1,7 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
-const db = require('quick.db')
 const {
     AME_API
-} = require('../config');
+} = require('../config.json');
 const AmeClient = require('amethyste-api');
 const AmeAPI = new AmeClient(AME_API);
 

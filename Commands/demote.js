@@ -1,8 +1,3 @@
-const Discord = require('discord.js')
-const { helpers } = require('mal-scraper/src/search')
-const colors = require('../colors.json')
-const client = require('../index.js')
-
 module.exports = {
     name: 'demote',
     description: 'Demotes the user to the previous rank',

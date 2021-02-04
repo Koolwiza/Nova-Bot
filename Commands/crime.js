@@ -1,9 +1,6 @@
 const Discord = require('discord.js')
-const colors = require('../colors.json')
-const client = require('../index.js')
 const db = require('quick.db')
 const ms = require('ms')
-const Long = require('long')
 
 module.exports = {
     name: 'crime',
@@ -33,7 +30,7 @@ module.exports = {
                     }))
                     .setDescription("You robbed <a:coin1:762153326430912532>" + payment + ' from the bank!')
                     .setTimestamp()
-                    .setColor("GREEN")
+                    .setColor(Math.floor(Math.random() * 16777215))
                 message.channel.send(workEmbed)
 
             }
@@ -45,9 +42,9 @@ module.exports = {
             db.subtract(`money_${message.guild.id}_${message.author.id}`, robAmount)
             db.set(`crime_${message.guild.id}_${message.author.id}`, Date.now())
 
-                let embed = new Discord.MessageEmbed()
+            let embed = new Discord.MessageEmbed()
                 .setTitle('Failed!')
-                .setColor(colors.red)
+                .setColor(Math.floor(Math.random() * 16777215))
                 .setDescription(`A cop caught you while robbing the bank! You were fined <a:coin1:762153326430912532> ${robAmount}!`)
                 .setFooter(message.client.user.username, message.client.user.displayAvatarURL({
                     dynamic: true
