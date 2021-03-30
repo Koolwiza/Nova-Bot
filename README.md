@@ -1,9 +1,9 @@
 
-### ⚠️ DEPRECATED
-**This bot will not be further updated. I'm currently making a new bot which might be posted on github**
+# ⚠️ DEPRECATED
+This bot will not be further updated. [Bot-12](https://github.com/Koolwiza/Bot-12/tree/main)
 
 
-# 📝 Starting-Up
+## 📝 Starting-Up
 NOTE:
 ```
 Before you view this bot, please know that this was one of my very first times programming. You'll notice that there are many flaws and not very efficient. However, this does work for v12. 
