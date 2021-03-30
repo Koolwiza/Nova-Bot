@@ -1,3 +1,8 @@
+
+### ⚠️ DEPRECATED
+**This bot will not be further updated. I'm currently making a new bot which might be posted on github**
+
+
 # 📝 Starting-Up
 NOTE:
 ```
@@ -18,6 +23,3 @@ This bot offers many commands ranging from Moderation, Economy, and even Image M
 ^bal
 ^ban <user> <reason>
 ```
-
-### ⚠️ Warning
-**This bot will not be further updated. I'm currently making a new bot which might be posted on github**
