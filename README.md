@@ -1,6 +1,6 @@
 
 # ⚠️ DEPRECATED
-This bot will not be further updated. [Bot-12](https://github.com/Koolwiza/Bot-12/tree/main)
+**This bot will not be further updated. [Bot-12](https://github.com/Koolwiza/Bot-12/tree/main)**
 
 
 ## 📝 Starting-Up
